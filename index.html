@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>My super-duper web application</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("li").click(function (e) {
+                e.preventDefault();
+                $("li").removeClass("selected");
+                $(this).addClass("selected");
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div id="container">
+    <div id="window">
+        <div id="window-header">My super-duper web application</div>
+        <ul class="tabrow">
+            <li class="tablinks selected" onclick="switchTab(event, 'login')">Login</li>
+            <li class="tablinks" onclick="switchTab(event, 'registration')">Registration</li>
+        </ul>
+        <div id="content-wrap">
+            <div id="login" class="tabcontent">
+                <div id="login-window">
+                    <p class="first-column">Email</p>
+                    <input class="second-column" type="text" name="email" placeholder="Email">
+                    <div class="third-column"></div>
+                    <p class="first-column">Password</p>
+                    <input class="second-column" type="text" name="password" placeholder="Password">
+                    <div class="third-column"></div>
+                    <div class="first-column"></div>
+                    <div class="second-column">
+                        <input type="checkbox" id="checkbox">
+                        <label for="checkbox">Remember me</label>
+                    </div>
+                    <div class="first-column"></div>
+                    <div class="second-column">
+                        <button type="submit" class="btn" id="login-btn">Login</button>
+                    </div>
+                    <div class="first-column"></div>
+                    <div class="second-column" id="forgotten-password">Forgotten password</div>
+                </div>
+            </div>
+
+            <div id="registration" class="tabcontent" style="visibility: hidden">
+                <div id="registration-window">
+                    <div id="left-part">
+                        <p class="first-column">Email</p>
+                        <input class="second-column2" type="text" name="email" placeholder="Email"></input>
+                        <p class="first-column">Password</p>
+                        <input class="second-column2" type="text" name="password" placeholder="Password"></input>
+                        <p class="first-column two-lines">Password again</p>
+                        <input class="second-column2" type="text" name="password-again" placeholder="Password">
+                        <div class="first-column two-lines">Type of account</div>
+                        <select class="second-column2" id="account-type" name="accout-type">
+                            <option value="account">Account</option>
+                        </select>
+                        <div class="first-column"></div>
+                        <button type="submit" class="btn" id="registration-btn">Registration</button>
+                    </div>
+                    <div id="right-part">
+                        <div class="content-wrapper">
+                            <div class="content-scroll">
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam egestas wisi a
+                                    erat.
+                                    Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec
+                                    bibendum odio risus sit amet ante. Pellentesque ipsum. Fusce nibh. Mauris dictum
+                                    facilisis augue. Fusce nibh. Nulla quis diam. Etiam ligula pede, sagittis quis,
+                                    interdum ultricies, scelerisque eu. Suspendisse sagittis ultrices augue. Fusce
+                                    aliquam vestibulum ipsum. Aliquam id dolor. Nullam lectus justo, vulputate eget
+                                    mollis sed, tempor sed magna. Quisque porta. Quis autem vel eum iure
+                                    reprehenderit
+                                    qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui
+                                    dolorem eum fugiat quo voluptas nulla pariatur? Pellentesque pretium lectus id
+                                    turpis. Aliquam erat volutpat. Excepteur sint occaecat cupidatat non proident,
+                                    sunt
+                                    in culpa qui officia deserunt mollit anim id est laborum.
+                                    Proin mattis lacinia justo. Aliquam id dolor. Duis aute irure dolor in
+                                    reprehenderit
+                                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Maecenas aliquet
+                                    accumsan leo. Nulla non arcu lacinia neque faucibus fringilla.
+
+                                    Curabitur ligula
+                                    sapien, pulvinar a vestibulum quis, facilisis vel sapien. Curabitur bibendum
+                                    justo
+                                    non orci. Donec vitae arcu. Etiam bibendum elit eget erat. Vestibulum fermentum
+                                    tortor id mi.</p>
+                            </div>
+                            <div class="gradientback"></div>
+                        </div>
+                        <div id="bottom-line">
+                            <div class="checkbox-div">
+                                <input type="checkbox" id="gridCheck2">
+                                <label id="checkbox-label" for="gridCheck2">I agree with the conditions</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function switchTab(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        document.getElementById(cityName).style.visibility = "visible";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>
